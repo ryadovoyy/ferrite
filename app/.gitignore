@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# production
+/web-build
+
+/.expo
+npm-debug.log*
+debug.log*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
