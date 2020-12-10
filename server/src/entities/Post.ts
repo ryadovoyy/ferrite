@@ -1,24 +1,30 @@
 import mongoose from 'mongoose';
-import { defaultClasses, Prop, getModelForClass } from '@typegoose/typegoose';
+import {
+  ModelOptions,
+  Prop,
+  defaultClasses,
+  getModelForClass
+} from '@typegoose/typegoose';
 
+@ModelOptions({ options: { customName: 'Post' } })
 class PostClass extends defaultClasses.TimeStamps {
-  @Prop()
+  @Prop({ required: true })
   public userId!: mongoose.Types.ObjectId;
 
-  @Prop()
+  @Prop({ required: true })
   public boardId!: mongoose.Types.ObjectId;
 
-  @Prop()
-  public rating!: number;
+  @Prop({ default: 0 })
+  public rating?: number;
 
-  @Prop()
+  @Prop({ required: true })
   public title!: string;
 
-  @Prop()
+  @Prop({ required: true })
   public text!: string;
 
-  @Prop()
-  public commentCount!: number;
+  @Prop({ default: 0 })
+  public commentCount?: number;
 }
 
 export const Post = getModelForClass(PostClass);

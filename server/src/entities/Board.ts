@@ -1,17 +1,18 @@
 import mongoose from 'mongoose';
-import { Prop, getModelForClass } from '@typegoose/typegoose';
+import { ModelOptions, Prop, getModelForClass } from '@typegoose/typegoose';
 
+@ModelOptions({ options: { customName: 'Board' } })
 class BoardClass {
-  @Prop()
+  @Prop({ required: true })
   public userId!: mongoose.Types.ObjectId;
 
-  @Prop()
+  @Prop({ required: true, unique: true })
   public shortName!: string;
 
-  @Prop()
+  @Prop({ required: true })
   public name!: string;
 
-  @Prop()
+  @Prop({ required: true })
   public description!: string;
 }
 

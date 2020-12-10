@@ -1,13 +1,14 @@
-import { Prop, getModelForClass } from '@typegoose/typegoose';
+import { ModelOptions, Prop, getModelForClass } from '@typegoose/typegoose';
 
+@ModelOptions({ options: { customName: 'User' } })
 class UserClass {
-  @Prop()
+  @Prop({ required: true, unique: true })
   public email!: string;
 
-  @Prop()
+  @Prop({ required: true })
   public password!: string;
 
-  @Prop()
+  @Prop({ required: true })
   public token!: string;
 }
 
