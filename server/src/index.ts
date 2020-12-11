@@ -2,7 +2,6 @@
 require('dotenv').config();
 
 import express from 'express';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 const main = async () => {
@@ -13,7 +12,7 @@ const main = async () => {
 
   const app = express();
 
-  app.use(bodyParser.json());
+  app.use(express.json());
 
   app.listen(process.env.PORT, () => {
     console.log(`[app]: http://localhost:${process.env.PORT}`);
