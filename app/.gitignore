@@ -4,6 +4,9 @@
 # production
 /web-build
 
+# misc
+.env
+
 /.expo
 npm-debug.log*
 debug.log*
